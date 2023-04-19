@@ -1,6 +1,6 @@
-# Odyssey Lift-off I: Basics
+# Odyssey Lift-off
 
-This is the companion app of the Apollo Graph Developer - Associate Certification! You can [find the course lessons and instructions](https://www.apollographql.com/tutorials/certifications/apollo-graph-associate), Apollo's learning platform.
+This is the companion app of the Apollo Graph Developer - Associate Certification! You can [find the course lessons and instructions on Odyssey](https://www.apollographql.com/tutorials/certifications/apollo-graph-associate), Apollo's learning platform.
 
 ## Getting Started
 
