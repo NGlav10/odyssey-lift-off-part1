@@ -2,3 +2,4 @@
 
 cd ./server && npm install
 cd ../client && npm install
+cd ../mobile && yarn install && cd ios && pod install

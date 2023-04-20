@@ -1,0 +1,4 @@
+# !/bin/bash
+
+cd ./mobile
+yarn react-native run-ios --simulator="iPhone 14 Pro"
