@@ -1,14 +1,14 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import { Link } from 'react-router-dom';
-import { colors, IconArrowRight, IconDoubleArrowRight } from '../styles';
-import { humanReadableTimeFromSeconds } from '../utils/helpers';
+import {Link} from 'react-router-dom';
+import {colors, IconArrowRight, IconDoubleArrowRight} from '../styles';
+import {humanReadableTimeFromSeconds} from '../utils/helpers';
 
 /**
  * Module Navigation: displays a list of modules titles
  * from a track and navigates to the modules page
  */
-const ModulesNav = ({ module, track }) => {
+const ModulesNav = ({module, track}) => {
   return (
     <ModulesNavContainer>
       <ModuleTitle>
@@ -17,12 +17,11 @@ const ModulesNav = ({ module, track }) => {
         </h4>
       </ModuleTitle>
       <ModulesList>
-        {track.modules.map((navModule) => (
+        {track.modules.map(navModule => (
           <ModuleListItem key={`module_${navModule.id}`}>
             <div>
               <ModuleNavStyledLink
-                to={`/track/${track.id}/module/${navModule.id}`}
-              >
+                to={`/track/${track.id}/module/${navModule.id}`}>
                 <ModuleListItemContent isActive={navModule.id === module.id}>
                   {navModule.id === module.id ? (
                     <IconDoubleArrowRight width="14px" />
@@ -85,7 +84,7 @@ const ModulesList = styled.ul({
   height: `calc(100% - ${trackTitleHeight}px)`,
 });
 
-const ModuleListItem = styled.li((props) => ({
+const ModuleListItem = styled.li(props => ({
   borderBottom: `solid 1px ${colors.grey.darker}`,
   ':last-child': {
     borderBottom: 'none',
@@ -98,7 +97,7 @@ const ModuleNavStyledLink = styled(Link)({
   alignItems: 'center',
 });
 
-const ModuleListItemContent = styled.div((props) => ({
+const ModuleListItemContent = styled.div(props => ({
   backgroundColor: props.isActive ? colors.black.base : colors.black.light,
   color: props.isActive ? colors.silver.lighter : colors.silver.darker,
   minHeight: 80,

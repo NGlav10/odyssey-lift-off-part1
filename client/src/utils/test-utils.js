@@ -1,11 +1,11 @@
 import React from 'react';
-import { render } from '@testing-library/react';
+import {render} from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
-import { MockedProvider } from '@apollo/client/testing';
+import {MockedProvider} from '@apollo/client/testing';
 
 const renderApollo = (
   node,
-  { mocks, addTypename, defaultOptions, cache, resolvers, ...options }
+  {mocks, addTypename, defaultOptions, cache, resolvers, ...options},
 ) => {
   return render(
     <MockedProvider
@@ -14,13 +14,12 @@ const renderApollo = (
       defaultOptions={defaultOptions}
       cache={cache}
       resolvers={resolvers}
-      removeTypename
-    >
+      removeTypename>
       {node}
     </MockedProvider>,
-    options
+    options,
   );
 };
 
 export * from '@testing-library/react';
-export { renderApollo };
+export {renderApollo};

@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, cleanup } from '../../utils/test-utils';
+import {render, cleanup} from '../../utils/test-utils';
 import TrackDetail from '../track-detail';
 
 const mockTrack = {

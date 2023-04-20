@@ -1,14 +1,14 @@
 import React from 'react';
-import { colors, widths } from '../styles';
+import {colors, widths} from '../styles';
 import styled from '@emotion/styled';
-import { Link } from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import logo from '../assets/space_cat_logo.png';
 
 /**
  * Header renders the top navigation
  * for this particular tutorial level, it only holds the home button
  */
-const Header = ({ children }) => {
+const Header = ({children}) => {
   return (
     <HeaderBar>
       <Container>
@@ -69,7 +69,7 @@ const HomeButton = styled.div({
   },
 });
 
-const LogoContainer = styled.div({ display: 'flex', alignSelf: 'center' });
+const LogoContainer = styled.div({display: 'flex', alignSelf: 'center'});
 
 const Logo = styled.img({
   height: 60,
