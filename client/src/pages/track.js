@@ -1,7 +1,7 @@
 import React from 'react';
-import {gql, useQuery} from '@apollo/client';
-import {Layout, QueryResult, TrackDetail} from '../components';
-import {useParams} from 'react-router-dom';
+import { gql, useQuery } from '@apollo/client';
+import { Layout, QueryResult, TrackDetail } from '../components';
+import { useParams } from 'react-router-dom';
 
 const GET_TRACK = gql`
   query GetTrack($trackId: ID!) {
@@ -28,9 +28,9 @@ const GET_TRACK = gql`
 `;
 
 const Track = () => {
-  const {trackId} = useParams();
-  const {loading, error, data} = useQuery(GET_TRACK, {
-    variables: {trackId},
+  const { trackId } = useParams();
+  const { loading, error, data } = useQuery(GET_TRACK, {
+    variables: { trackId },
   });
 
   return (

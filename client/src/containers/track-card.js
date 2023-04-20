@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import {colors, mq} from '../styles';
-import {humanReadableTimeFromSeconds} from '../utils/helpers';
-import {Link} from 'react-router-dom';
-import {gql, useMutation} from '@apollo/client';
+import { colors, mq } from '../styles';
+import { humanReadableTimeFromSeconds } from '../utils/helpers';
+import { Link } from 'react-router-dom';
+import { gql, useMutation } from '@apollo/client';
 
 /**
  * Mutation to increment a track's number of views
@@ -26,11 +26,11 @@ const INCREMENT_TRACK_VIEWS = gql`
  * Track Card component renders basic info in a card format
  * for each track populating the tracks grid homepage.
  */
-const TrackCard = ({track}) => {
-  const {title, thumbnail, author, length, modulesCount, id} = track;
+const TrackCard = ({ track }) => {
+  const { title, thumbnail, author, length, modulesCount, id } = track;
 
   const [incrementTrackViews] = useMutation(INCREMENT_TRACK_VIEWS, {
-    variables: {incrementTrackViewsId: id},
+    variables: { incrementTrackViewsId: id },
     onCompleted: data => {
       console.log(data);
     },

@@ -1,5 +1,5 @@
-const {ApolloServer} = require('@apollo/server');
-const {startStandaloneServer} = require('@apollo/server/standalone');
+const { ApolloServer } = require('@apollo/server');
+const { startStandaloneServer } = require('@apollo/server/standalone');
 
 const typeDefs = require('./schema');
 const resolvers = require('./resolvers');
@@ -10,7 +10,7 @@ async function startApolloServer() {
     typeDefs,
     resolvers,
   });
-  const {url} = await startStandaloneServer(server, {
+  const { url } = await startStandaloneServer(server, {
     context: async () => {
       return {
         dataSources: {

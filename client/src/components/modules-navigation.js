@@ -1,14 +1,14 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import {Link} from 'react-router-dom';
-import {colors, IconArrowRight, IconDoubleArrowRight} from '../styles';
-import {humanReadableTimeFromSeconds} from '../utils/helpers';
+import { Link } from 'react-router-dom';
+import { colors, IconArrowRight, IconDoubleArrowRight } from '../styles';
+import { humanReadableTimeFromSeconds } from '../utils/helpers';
 
 /**
  * Module Navigation: displays a list of modules titles
  * from a track and navigates to the modules page
  */
-const ModulesNav = ({module, track}) => {
+const ModulesNav = ({ module, track }) => {
   return (
     <ModulesNavContainer>
       <ModuleTitle>

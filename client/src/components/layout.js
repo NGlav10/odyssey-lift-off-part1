@@ -1,13 +1,13 @@
 import React from 'react';
-import {Header, Footer} from '../components';
+import { Header, Footer } from '../components';
 import styled from '@emotion/styled';
-import {widths, unit} from '../styles';
+import { widths, unit } from '../styles';
 
 /**
  * Layout renders the full page content:
  * with header, Page container and footer
  */
-const Layout = ({fullWidth, children, grid}) => {
+const Layout = ({ fullWidth, children, grid }) => {
   return (
     <>
       <Header />

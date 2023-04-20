@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import {colors, widths} from '../styles';
+import { colors, widths } from '../styles';
 import useWindowDimensions from '../utils/useWindowDimensions';
 import ContentSection from './content-section';
 import ReactPlayer from 'react-player/youtube';
@@ -11,9 +11,9 @@ import MarkDown from './md-content';
  * Module Detail renders content of a given module:
  * Video player, modules navigation and markdown content
  */
-const ModuleDetail = ({track, module}) => {
-  const {videoUrl, title, content} = module;
-  const {width} = useWindowDimensions();
+const ModuleDetail = ({ track, module }) => {
+  const { videoUrl, title, content } = module;
+  const { width } = useWindowDimensions();
 
   return (
     <>
@@ -44,7 +44,7 @@ const TopSection = styled.div({
   borderBottom: `solid 1px ${colors.pink.base}`,
 });
 
-const TopContainer = styled.div(({totalWidth}) => ({
+const TopContainer = styled.div(({ totalWidth }) => ({
   display: 'flex',
   flexDirection: 'row',
   alignSelf: 'center',
