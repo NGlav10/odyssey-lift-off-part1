@@ -1,3 +1,13 @@
 {
-  "extends": "@tsconfig/react-native/tsconfig.json"
+  "extends": "@tsconfig/react-native/tsconfig.json",
+  "compilerOptions": {
+    "strict": true,
+    "baseUrl": ".",
+    "paths": {
+      "@components": ["mobile/ts/components"],
+      "@api": ["mobile/ts/api"],
+      "@typeDef": ["mobile/ts/typeDef.ts"],
+      "@assets": ["mobile/assets"]
+    }
+  }
 }
