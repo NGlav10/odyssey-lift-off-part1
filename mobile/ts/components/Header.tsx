@@ -2,7 +2,7 @@ import React from 'react';
 import { Image, StyleSheet, Text, View } from 'react-native';
 
 import logo from '../../assets/imgs/space_cat_logo.png';
-import { colors } from '@assets/styles';
+import { colors } from '../../assets/styles';
 
 export default function Header() {
   return (

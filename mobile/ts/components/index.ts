@@ -1,2 +1,3 @@
 export { default as Header } from './Header';
-export { default as Track } from './Track';
+export { default as Tracks } from './Tracks/Tracks';
+export { default as Query } from './Query';
