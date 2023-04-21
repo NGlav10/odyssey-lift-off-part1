@@ -1,31 +1,14 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- */
-
 import React from 'react';
-import { SafeAreaView, ScrollView, StatusBar } from 'react-native';
+import { SafeAreaView, StatusBar } from 'react-native';
 
-import { Colors } from 'react-native/Libraries/NewAppScreen';
-
-import { Header, Track } from './components';
+import { Header, Tracks } from './components';
 
 function App(): JSX.Element {
-  const backgroundStyle = {
-    backgroundColor: Colors.lighter,
-  };
-
   return (
-    <SafeAreaView style={backgroundStyle}>
+    <SafeAreaView>
       <StatusBar />
       <Header />
-      <ScrollView
-        contentInsetAdjustmentBehavior="automatic"
-        style={backgroundStyle}>
-        <Track />
-      </ScrollView>
+      <Tracks />
     </SafeAreaView>
   );
 }
