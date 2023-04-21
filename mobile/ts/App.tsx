@@ -1,10 +1,13 @@
 import React from 'react';
-import { SafeAreaView, StatusBar } from 'react-native';
 
-import { Header, Tracks } from './components';
+import { Tracks } from './components';
 import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-function App(): JSX.Element {
+const Stack = createNativeStackNavigator();
+
+export default function App(): JSX.Element {
   const client = new ApolloClient({
     uri: 'http://localhost:4000',
     cache: new InMemoryCache(),
@@ -12,13 +15,13 @@ function App(): JSX.Element {
 
   return (
     <ApolloProvider client={client}>
-      <SafeAreaView>
-        <StatusBar />
-        <Header />
-        <Tracks />
-      </SafeAreaView>
+      <NavigationContainer>
+        <Stack.Navigator
+          initialRouteName="Tracks"
+          screenOptions={{ headerShown: false }}>
+          <Stack.Screen name="Tracks" component={Tracks} />
+        </Stack.Navigator>
+      </NavigationContainer>
     </ApolloProvider>
   );
 }
-
-export default App;

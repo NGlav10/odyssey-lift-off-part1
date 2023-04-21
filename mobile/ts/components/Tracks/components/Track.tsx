@@ -4,6 +4,7 @@ import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { TrackType } from '../../../typeDef';
 import { humanReadableTimeFromSeconds } from '../../../utils/helpers';
 import { colors } from '../../../../assets/styles';
+import { useWindow } from '../../../hooks/useWindowDimensions';
 
 type Props = {
   track: TrackType;
@@ -18,12 +19,14 @@ export default function Track({
     author: { name, photo },
   },
 }: Props) {
+  const window = useWindow();
+
   return (
     <TouchableOpacity style={styles.track}>
       <Image
         source={{ uri: thumbnail }}
-        resizeMode={'cover'}
-        style={styles.thumbnail}
+        resizeMode="cover"
+        style={[styles.thumbnail, { width: window.width - 30 }]}
       />
       <View style={styles.textContainer}>
         <Text style={styles.title}>{title}</Text>
@@ -85,9 +88,8 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.25,
   },
   thumbnail: {
-    width: '100%',
-    height: 205,
-    resizeMode: 'contain',
+    height: 220,
+    resizeMode: 'cover',
     borderTopRightRadius: 5,
     borderTopLeftRadius: 5,
   },

@@ -12,13 +12,9 @@ export default function Query<T>({
   children,
 }: Props<T>) {
   if (loading) {
-    return (
-      <>
-        <Text>Loading...</Text>
-      </>
-    );
+    return <Text>Loading...</Text>;
   } else if (error) {
-    return <>{error}</>;
+    return <Text>{error.message ?? 'Error...'}</Text>;
   } else if (!data) {
     return <p>Nothing to show...</p>;
   } else {
