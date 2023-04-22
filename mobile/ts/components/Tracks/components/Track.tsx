@@ -6,6 +6,8 @@ import { humanReadableTimeFromSeconds } from '../../../utils/helpers';
 import { colors, styleGuide } from '../../../../assets/styles';
 import { useWindow } from '../../../hooks/useWindowDimensions';
 import { useNavigation } from '@react-navigation/native';
+import { useMutation } from '@apollo/client';
+import { INCREMENT_TRACK_VIEWS } from '../../../api/incrementTrackViews';
 
 type Props = {
   track: TrackType;
@@ -23,11 +25,18 @@ const Track = ({
 }: Props) => {
   const window = useWindow();
   const navigation = useNavigation();
+  const [incrementTrackViews] = useMutation(INCREMENT_TRACK_VIEWS, {
+    variables: { incrementTrackViewsId: id },
+    onCompleted: data => {
+      console.log(data);
+    },
+  });
 
   return (
     <TouchableOpacity
       style={styles.track}
       onPress={() => {
+        incrementTrackViews();
         navigation.navigate('TrackDetail', { trackId: id });
       }}>
       <Image
