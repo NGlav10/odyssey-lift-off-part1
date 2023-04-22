@@ -16,10 +16,18 @@ bin/setup
 bin/start_server
 ```
 
-3. In another terminal window, start the React app
+3. To start the React app
 
 ```
 bin/start_client
 ```
 
-This will open up `localhost:3000` in your web browser.
+- This will open up `localhost:3000` in your web browser.
+
+4. To start the mobile app
+
+```
+bin/start_mobile_ios
+```
+
+- This will open an iPhone 14 Pro simulator and metro bundler
