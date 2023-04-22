@@ -5,8 +5,9 @@ import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import TrackDetail from './components/TrackDetail';
+import { RootStackParamList } from './typeDef';
 
-const Stack = createNativeStackNavigator();
+const Stack = createNativeStackNavigator<RootStackParamList>();
 
 const header = () => <Header />;
 

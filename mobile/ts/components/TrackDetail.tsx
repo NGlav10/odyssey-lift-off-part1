@@ -1,8 +1,8 @@
 import React from 'react';
 import { Image, ScrollView, StyleSheet, Text, View } from 'react-native';
 import Markdown from 'react-native-markdown-display';
+import { RouteProp, useRoute } from '@react-navigation/native';
 
-import { useRoute } from '@react-navigation/native';
 import { colors, styleGuide } from '../../assets/styles';
 import { useWindow } from '../hooks/useWindowDimensions';
 import { humanReadableTimeFromSeconds } from '../utils/helpers';
@@ -10,14 +10,14 @@ import Divider from './Divider';
 import { useQuery } from '@apollo/client';
 import { TRACK } from '../api/getTrack';
 import Query from './Query';
-import { GetTrackType } from '../typeDef';
+import { GetTrackType, RootStackParamList } from '../typeDef';
 
 const TrackDetail = () => {
   const window = useWindow();
 
   const {
     params: { trackId },
-  } = useRoute();
+  } = useRoute<RouteProp<RootStackParamList, 'TrackDetail'>>();
   const queryResult = useQuery<GetTrackType>(TRACK, {
     variables: {
       trackId,
@@ -82,7 +82,7 @@ const TrackDetail = () => {
           </View>
         </View>
         <View style={styles.markdown}>
-          <Markdown>{description ?? ''}</Markdown>
+          <Markdown>{description}</Markdown>
         </View>
       </ScrollView>
     </Query>

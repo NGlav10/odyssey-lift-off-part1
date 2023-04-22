@@ -28,3 +28,8 @@ export type ModuleType = {
   title: string;
   length: number;
 };
+
+export type RootStackParamList = {
+  Tracks: undefined;
+  TrackDetail: { trackId: string };
+};

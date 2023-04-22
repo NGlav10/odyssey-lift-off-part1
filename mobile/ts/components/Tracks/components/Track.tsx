@@ -1,13 +1,14 @@
 import React, { memo } from 'react';
 import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
-import { TrackType } from '../../../typeDef';
+import { RootStackParamList, TrackType } from '../../../typeDef';
 import { humanReadableTimeFromSeconds } from '../../../utils/helpers';
 import { colors, styleGuide } from '../../../../assets/styles';
 import { useWindow } from '../../../hooks/useWindowDimensions';
 import { useNavigation } from '@react-navigation/native';
 import { useMutation } from '@apollo/client';
 import { INCREMENT_TRACK_VIEWS } from '../../../api/incrementTrackViews';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 
 type Props = {
   track: TrackType;
@@ -24,7 +25,8 @@ const Track = ({
   },
 }: Props) => {
   const window = useWindow();
-  const navigation = useNavigation();
+  const navigation =
+    useNavigation<NativeStackNavigationProp<RootStackParamList>>();
   const [incrementTrackViews] = useMutation(INCREMENT_TRACK_VIEWS, {
     variables: { incrementTrackViewsId: id },
     onCompleted: data => {
