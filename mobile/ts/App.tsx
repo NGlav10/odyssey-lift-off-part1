@@ -1,11 +1,14 @@
 import React from 'react';
 
-import { Tracks } from './components';
+import { Header, Tracks } from './components';
 import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import TrackDetail from './components/TrackDetail';
 
 const Stack = createNativeStackNavigator();
+
+const header = () => <Header />;
 
 export default function App(): JSX.Element {
   const client = new ApolloClient({
@@ -18,8 +21,12 @@ export default function App(): JSX.Element {
       <NavigationContainer>
         <Stack.Navigator
           initialRouteName="Tracks"
-          screenOptions={{ headerShown: false }}>
+          screenOptions={{
+            header,
+            fullScreenGestureEnabled: true,
+          }}>
           <Stack.Screen name="Tracks" component={Tracks} />
+          <Stack.Screen name="TrackDetail" component={TrackDetail} />
         </Stack.Navigator>
       </NavigationContainer>
     </ApolloProvider>

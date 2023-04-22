@@ -1,42 +1,49 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
 import { TrackType } from '../../../typeDef';
 import { humanReadableTimeFromSeconds } from '../../../utils/helpers';
-import { colors } from '../../../../assets/styles';
+import { colors, styleGuide } from '../../../../assets/styles';
 import { useWindow } from '../../../hooks/useWindowDimensions';
+import { useNavigation } from '@react-navigation/native';
 
 type Props = {
   track: TrackType;
 };
 
-export default function Track({
+const Track = ({
   track: {
+    id,
     title,
     modulesCount,
     length,
     thumbnail,
     author: { name, photo },
   },
-}: Props) {
+}: Props) => {
   const window = useWindow();
+  const navigation = useNavigation();
 
   return (
-    <TouchableOpacity style={styles.track}>
+    <TouchableOpacity
+      style={styles.track}
+      onPress={() => {
+        navigation.navigate('TrackDetail', { trackId: id });
+      }}>
       <Image
         source={{ uri: thumbnail }}
         resizeMode="cover"
         style={[styles.thumbnail, { width: window.width - 30 }]}
       />
       <View style={styles.textContainer}>
-        <Text style={styles.title}>{title}</Text>
+        <Text style={[styles.title, styleGuide.h1]}>{title}</Text>
         <View style={styles.authorContainer}>
           <Image source={{ uri: photo }} style={styles.authorPhoto} />
           <View style={styles.nameAndModulesContainer}>
-            <Text style={styles.authorName}>{name}</Text>
+            <Text style={styleGuide.body1}>{name}</Text>
             <Text
               style={
-                styles.modules
+                styleGuide.body2
               }>{`${modulesCount} modules - ${humanReadableTimeFromSeconds(
               length,
             )}`}</Text>
@@ -45,7 +52,7 @@ export default function Track({
       </View>
     </TouchableOpacity>
   );
-}
+};
 
 const styles = StyleSheet.create({
   authorContainer: {
@@ -53,18 +60,10 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
   },
-  authorName: {
-    fontSize: 17,
-    color: colors.textSecondary,
-  },
   authorPhoto: {
     height: 30,
     width: 30,
     borderRadius: 50,
-  },
-  modules: {
-    fontSize: 12,
-    color: colors.textSecondary,
   },
   nameAndModulesContainer: {
     marginLeft: 5,
@@ -74,8 +73,6 @@ const styles = StyleSheet.create({
   },
   title: {
     alignSelf: 'center',
-    fontSize: 22,
-    fontWeight: '600',
     textAlign: 'center',
   },
   track: {
@@ -94,3 +91,5 @@ const styles = StyleSheet.create({
     borderTopLeftRadius: 5,
   },
 });
+
+export default memo(Track);

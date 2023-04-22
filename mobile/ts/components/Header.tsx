@@ -3,14 +3,19 @@ import { Image, StyleSheet, Text, View } from 'react-native';
 
 import logo from '../../assets/imgs/space_cat_logo.png';
 import { colors } from '../../assets/styles';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 export default function Header() {
+  const insets = useSafeAreaInsets();
+
   return (
-    <View style={styles.container}>
-      <Image source={logo} />
-      <View style={styles.textContainer}>
-        <Text style={styles.catstronaut}>Catstronaut</Text>
-        <Text style={styles.kittySpaceAcademy}>Kitty space academy</Text>
+    <View style={[styles.headerContainer, { paddingTop: insets.top }]}>
+      <View style={styles.container}>
+        <Image source={logo} />
+        <View style={styles.textContainer}>
+          <Text style={styles.catstronaut}>Catstronaut</Text>
+          <Text style={styles.kittySpaceAcademy}>Kitty space academy</Text>
+        </View>
       </View>
     </View>
   );
@@ -26,9 +31,12 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignContent: 'center',
     backgroundColor: 'white',
+    padding: 15,
+    alignSelf: 'center',
+  },
+  headerContainer: {
     borderBottomWidth: 1,
     borderBottomColor: colors.accent,
-    padding: 15,
   },
   kittySpaceAcademy: {
     color: colors.accent,
