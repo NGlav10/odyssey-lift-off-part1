@@ -4,7 +4,7 @@ This is the companion app of the Apollo Graph Developer - Associate Certificatio
 
 ## Getting Started
 
-1. Run the setup script to install dependencies in `client/` & `server/`
+1. Run the setup script to install dependencies in `client/`, `server/` & `mobile/`
 
 ```
 bin/setup
